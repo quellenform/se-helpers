@@ -261,6 +261,8 @@ function DownloadUserdata() {
                 content=$(sed '$ d' <<<"${response}")
                 # Extract relevant section to file:
                 echo "${content}" | ${cmdHxclean} | ${cmdHxselect} -c -s "\n" "div[id='mainbar-full']" | ${cmdHxremove} svg,script | hxclean | sed 's/^[[:space:]]*//g' >${userDataFile}
+                randomMicroSeconds=$(printf "%03d\n" $(shuf -i 500-999 -n 1))
+                sleep 0.${randomMicroSeconds}
             elif [[ ${http_code} == "404" ]]; then
                 randomMicroSeconds=$(printf "%03d\n" $(shuf -i 0-999 -n 1))
                 [[ ${quiet} -eq 0 ]] && echo "$(tput bold)$(tput setaf 1)[${http_code}]$(tput sgr0) User $(tput bold)${userId}$(tput sgr0) does not exist. (cool down: ${cooldown404}.${randomMicroSeconds}s)"
