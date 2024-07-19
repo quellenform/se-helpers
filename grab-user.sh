@@ -7,7 +7,7 @@
 # the -n parameter, as the number of entries would otherwise result in a
 # very large HTML file.
 #
-# Requirements: curl, html-xml-utils, html2text
+# Requirements: curl, html-xml-utils, html2text, recode
 #
 
 # User-defined variables (overwrite in config file if required)
@@ -37,6 +37,7 @@ cmdHxclean=""
 cmdHxselect=""
 cmdHxremove=""
 cmdHtml2text=""
+cmdRecode=""
 pathScript=""
 
 #-------------------------------------------------------------------------------
@@ -117,6 +118,11 @@ function CheckRequirements() {
     cmdHtml2text=$(which "html2text")
     if [[ -z "${cmdHtml2text}" ]]; then
         exitOnError "The 'html2text' command is missing or not available. Please install with: apt install html2text"
+        exit 1
+    fi
+    cmdRecode=$(which "recode")
+    if [[ -z "${cmdRecode}" ]]; then
+        exitOnError "The 'recode' command is missing or not available. Please install with: apt install recode"
         exit 1
     fi
 }
@@ -315,7 +321,7 @@ function AddUserDataToHtml() {
 
     if [[ ${createHtml} -eq 1 ]] && [[ -f ${userDataFile} ]]; then
 
-        location=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(1) div.truncate" | tail -n +2 | recode html..UTF-8)
+        location=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(1) div.truncate" | tail -n +2 | ${cmdRecode} html..UTF-8)
         [[ -z ${location} ]] && select=1 || select=2
         website=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(${select}) a[rel*='me']")
         [[ -z ${website} ]] && website=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(2) div:first-child" | ${cmdHtml2text} -utf8)
