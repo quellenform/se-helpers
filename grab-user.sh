@@ -243,7 +243,7 @@ function DownloadUserdata() {
 
     if [[ -z $(grep -i "\b${userId}\b" "${usersNotFoundList}") ]]; then
         if [[ ! -f ${userDataFile} ]] || [[ ${forceDownload} -eq 1 ]]; then
-            url=$(echo ${profileUrlUser} | sed "s/%s/${userId}/")
+            local url=$(echo ${profileUrlUser} | sed "s/%s/${userId}/")
 
             response=$(${cmdCurl} -L -s -w "\n%{http_code}" ${url})
             http_code=$(tail -n1 <<<"${response}")
