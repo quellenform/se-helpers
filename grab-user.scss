@@ -83,6 +83,11 @@ img {
 
 h2 {
 	margin: 0;
+
+	a:last-child {
+		margin-left: 1em;
+		font-size: 70%;
+	}
 }
 
 pre {

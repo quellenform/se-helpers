@@ -378,7 +378,7 @@ function AddUserDataToHtml() {
             echo "<li${class}>
 ${imageTag}
 <div>${warning}
-<h2>#${userId} <a href=\"${url}users/${userId}\">${username}</a></h2>
+<h2>#${userId} <a href=\"${url}users/${userId}\">${username}</a><a href=\"${url}users/edit/${userId}\">[Edit]</a></h2>
 <span>${location}</span>
 <span>${website}</span>
 <pre>${description}</pre>

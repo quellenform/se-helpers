@@ -1,107 +1,99 @@
 body {
-	font-family: system-ui;
+  font-family: system-ui;
 }
 
 ul {
-	list-style: none;
-	padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .users li {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	column-gap: 1em;
-	padding: 1em;
-	border-top: 1px dotted #555;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 1em;
+  padding: 1em;
+  border-top: 1px dotted #555;
 }
-
 .users li.warning {
-	background-color: #ffd9d5;
+  background-color: #ffd9d5;
 }
-
 .users li.warning:hover {
-	background-color: #fda89f;
+  background-color: #fda89f;
 }
-
-.users li.warning>div>span:nth-child(1) {
-	position: absolute;
-	align-self: end;
-	background-color: red;
-	padding: 0.3em 1em;
-	font-weight: bold;
+.users li.warning > div > span:nth-child(1) {
+  position: absolute;
+  align-self: end;
+  background-color: red;
+  padding: 0.3em 1em;
+  font-weight: bold;
 }
-
 .users li:hover {
-	background-color: #eee;
+  background-color: #eee;
 }
-
-.users li>div:nth-child(1) {
-	width: 128px;
-	text-align: center;
-	border: 1px solid #eee;
-	padding: 2px;
-	background-color: #fefefe;
-	height: min-content;
-	flex-shrink: 0;
-	min-height: 64px;
-	font-size: 0.6em;
-	color: #777;
-	padding: 0.2em;
+.users li > div:nth-child(1) {
+  width: 128px;
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 2px;
+  background-color: #fefefe;
+  height: min-content;
+  flex-shrink: 0;
+  min-height: 64px;
+  font-size: 0.6em;
+  color: #777;
+  padding: 0.2em;
 }
-
-.users li>div:nth-child(2) {
-	width: calc(100% - 64px - 1em);
-	display: flex;
-	flex-direction: column;
-	row-gap: 0.5em;
-	flex-grow: 1;
+.users li > div:nth-child(2) {
+  width: calc(100% - 64px - 1em);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  flex-grow: 1;
 }
-
-.users li>div>span:nth-child(2) {
-	font-style: italic;
+.users li > div > span:nth-child(2) {
+  font-style: italic;
 }
-
-.users li>div>span:nth-child(3) {
-	font-weight: bold;
-	font-style: italic;
-	color: red;
+.users li > div > span:nth-child(3) {
+  font-weight: bold;
+  font-style: italic;
+  color: red;
 }
-
-.users li>div>span:nth-child(3) a {
-	color: red;
+.users li > div > span:nth-child(3) a {
+  color: red;
 }
 
 img {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 h2 {
-	margin: 0;
+  margin: 0;
+}
+h2 a:last-child {
+  margin-left: 1em;
+  font-size: 70%;
 }
 
 pre {
-	margin: 0;
-	background-color: rgba(200, 200, 200, 0.5);
-	overflow: auto;
+  margin: 0;
+  background-color: rgba(200, 200, 200, 0.5);
+  overflow: auto;
 }
 
 .pagination ul {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
-
 .pagination li {
-	display: inline-block;
+  display: inline-block;
 }
-
 .pagination li a {
-	padding: 0.4em 1em;
-	white-space: nowrap;
-	display: block;
+  padding: 0.4em 1em;
+  white-space: nowrap;
+  display: block;
 }
-
 .pagination li a:hover {
-	background-color: #eee;
+  background-color: #eee;
 }
