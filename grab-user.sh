@@ -224,6 +224,14 @@ function PreparePaths() {
 }
 
 #-------------------------------------------------------------------------------
+# Remove user data if the profile was previously downloaded
+#	$?	void
+#-------------------------------------------------------------------------------
+function RemoveUserdata() {
+    [[ -f ${userDataFile} ]] && rm ${userDataFile}
+}
+
+#-------------------------------------------------------------------------------
 # Download user data
 #	$1	string	The user ID
 #	$2	string	The user data file
@@ -266,6 +274,7 @@ function DownloadUserdata() {
             elif [[ ${http_code} == "404" ]]; then
                 randomMicroSeconds=$(printf "%03d\n" $(shuf -i 0-999 -n 1))
                 [[ ${quiet} -eq 0 ]] && EchoColoredMessage 1 "[${http_code}]" " User $(tput bold)${userId}$(tput sgr0) does not exist. (cool down: ${cooldown404}.${randomMicroSeconds}s)"
+                RemoveUserdata "${userDataFile}"
                 echo "${userId}" >>"${usersNotFoundList}"
                 sleep ${cooldown404}.${randomMicroSeconds}
             else
@@ -278,8 +287,7 @@ function DownloadUserdata() {
         fi
     else
         [[ ${quiet} -eq 0 ]] && echo "User $(tput bold)${userId}$(tput sgr0) does not exist"
-        # Remove user data if the profile was previously downloaded
-        [[ -f ${userDataFile} ]] && rm ${userDataFile}
+        RemoveUserdata "${userDataFile}"
     fi
 }
 
