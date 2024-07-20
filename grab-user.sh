@@ -278,6 +278,8 @@ function DownloadUserdata() {
         fi
     else
         [[ ${quiet} -eq 0 ]] && echo "User $(tput bold)${userId}$(tput sgr0) does not exist"
+        # Remove user data if the profile was previously downloaded
+        [[ -f ${userDataFile} ]] && rm ${userDataFile}
     fi
 }
 
