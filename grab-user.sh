@@ -66,7 +66,7 @@ function ShowUsage() {
 #	$3	string	The final message
 #	$?	void
 #-------------------------------------------------------------------------------
-function echoColoredMessage() {
+function EchoColoredMessage() {
     echo "$(tput bold)$(tput setaf ${1})${2}$(tput sgr0)${3}"
 }
 
@@ -75,8 +75,8 @@ function echoColoredMessage() {
 #	$3	string	The message
 #	$?	void
 #-------------------------------------------------------------------------------
-function exitOnError() {
-    echoColoredMessage 1 "❱ EXIT:" " ${1}"
+function ExitOnError() {
+    EchoColoredMessage 1 "❱ EXIT:" " ${1}"
     exit 1
 }
 
@@ -87,7 +87,7 @@ function exitOnError() {
 #	$?	void
 #-------------------------------------------------------------------------------
 function CheckArgument() {
-    [[ ${2} =~ ^-.* ]] && exitOnError "No value for argument $(tput bold)${1}$(tput sgr0)"
+    [[ ${2} =~ ^-.* ]] && ExitOnError "No value for argument $(tput bold)${1}$(tput sgr0)"
 }
 
 #-------------------------------------------------------------------------------
@@ -97,32 +97,32 @@ function CheckArgument() {
 function CheckRequirements() {
     cmdCurl=$(which "curl")
     if [[ -z "${cmdCurl}" ]]; then
-        exitOnError "The 'curl' command is missing or not available. Please install with: apt install curl"
+        ExitOnError "The 'curl' command is missing or not available. Please install with: apt install curl"
         exit 1
     fi
     cmdHxclean=$(which "hxclean")
     if [[ -z "${cmdHxclean}" ]]; then
-        exitOnError "The 'hxclean' command is missing or not available. Please install with: apt install html-xml-utils"
+        ExitOnError "The 'hxclean' command is missing or not available. Please install with: apt install html-xml-utils"
         exit 1
     fi
     cmdHxselect=$(which "hxselect")
     if [[ -z "${cmdHxselect}" ]]; then
-        exitOnError "The 'hxselect' command is missing or not available. Please install with: apt install html-xml-utils"
+        ExitOnError "The 'hxselect' command is missing or not available. Please install with: apt install html-xml-utils"
         exit 1
     fi
     cmdHxremove=$(which "hxremove")
     if [[ -z "${cmdHxremove}" ]]; then
-        exitOnError "The 'hxremove' command is missing or not available. Please install with: apt install html-xml-utils"
+        ExitOnError "The 'hxremove' command is missing or not available. Please install with: apt install html-xml-utils"
         exit 1
     fi
     cmdHtml2text=$(which "html2text")
     if [[ -z "${cmdHtml2text}" ]]; then
-        exitOnError "The 'html2text' command is missing or not available. Please install with: apt install html2text"
+        ExitOnError "The 'html2text' command is missing or not available. Please install with: apt install html2text"
         exit 1
     fi
     cmdRecode=$(which "recode")
     if [[ -z "${cmdRecode}" ]]; then
-        exitOnError "The 'recode' command is missing or not available. Please install with: apt install recode"
+        ExitOnError "The 'recode' command is missing or not available. Please install with: apt install recode"
         exit 1
     fi
 }
@@ -134,7 +134,7 @@ function CheckRequirements() {
 function LoadConfig() {
     # Include config file
     configFile="${pathScript}grab-user.conf"
-    [ -f ${configFile} ] && . ${configFile} || exitOnError "Config file $(tput bold)${configFile}$(tput sgr0) could not be loaded!"
+    [ -f ${configFile} ] && . ${configFile} || ExitOnError "Config file $(tput bold)${configFile}$(tput sgr0) could not be loaded!"
 }
 
 #-------------------------------------------------------------------------------
@@ -159,9 +159,9 @@ function GetHighestUserId() {
     local http_code=$(tail -n1 <<<"${response}")
     if [[ ${http_code} == "200" ]]; then
         endId=$(sed '$ d' <<<"${response}" | ${cmdHxclean} | ${cmdHxselect} -c div[id='user-browser'] div.user-info:first-child div:first-child | sed -n 's/.*href="\/users\/\([^\/]*\).*/\1/p')
-        [[ -z ${endId} ]] && exitOnError "User ID could not be parsed!"
+        [[ -z ${endId} ]] && ExitOnError "User ID could not be parsed!"
     else
-        exitOnError "User ID could not be retrieved from $(tput bold)${profileUrlOverview}$(tput sgr0)!"
+        ExitOnError "User ID could not be retrieved from $(tput bold)${profileUrlOverview}$(tput sgr0)!"
     fi
 }
 
@@ -194,13 +194,13 @@ function PrepareVariables() {
 #-------------------------------------------------------------------------------
 function AskForUserInput() {
     echo ""
-    echoColoredMessage 3 "URL: " "$(tput bold)${url}$(tput sgr0)"
-    echoColoredMessage 3 "Start ID: " "$(tput bold)${startId}$(tput sgr0)"
-    echoColoredMessage 3 "End ID: " "$(tput bold)${endId}$(tput sgr0)"
-    echoColoredMessage 3 "Force Download: " "$(tput bold)${forceDownload}$(tput sgr0)"
-    echoColoredMessage 3 "Create HTML: " "$(tput bold)${createHtml}$(tput sgr0)"
-    echoColoredMessage 3 "Output path: " "$(tput bold)${pathOutput}$(tput sgr0)"
-    echoColoredMessage 3 "User data path: " "$(tput bold)${pathData}$(tput sgr0)"
+    EchoColoredMessage 3 "URL: " "$(tput bold)${url}$(tput sgr0)"
+    EchoColoredMessage 3 "Start ID: " "$(tput bold)${startId}$(tput sgr0)"
+    EchoColoredMessage 3 "End ID: " "$(tput bold)${endId}$(tput sgr0)"
+    EchoColoredMessage 3 "Force Download: " "$(tput bold)${forceDownload}$(tput sgr0)"
+    EchoColoredMessage 3 "Create HTML: " "$(tput bold)${createHtml}$(tput sgr0)"
+    EchoColoredMessage 3 "Output path: " "$(tput bold)${pathOutput}$(tput sgr0)"
+    EchoColoredMessage 3 "User data path: " "$(tput bold)${pathData}$(tput sgr0)"
     echo ""
 
     echo "$(tput bold)Do you want download the userdata?$(tput sgr0)"
@@ -208,7 +208,7 @@ function AskForUserInput() {
     if [[ ${action} ]] && [ ${action} == "j" -o ${action} == "J" -o ${action} == "y" -o ${action} == "Y" ]; then
         echo ""
     else
-        exitOnError "Aborted by user input!"
+        ExitOnError "Aborted by user input!"
     fi
 }
 
@@ -242,13 +242,13 @@ function DownloadUserdata() {
 
             if [[ ${http_code} == "429" ]]; then
                 # Cool down & repeat
-                [[ ${quiet} -eq 0 ]] && echo "$(tput bold)$(tput setaf 6)[429]$(tput sgr0) Too many requests (additional cool down for ${cooldown404}s)"
+                [[ ${quiet} -eq 0 ]] && EchoColoredMessage 6 "[${http_code}]" " Too many requests (additional cool down for ${cooldown404}s)"
                 sleep ${cooldown404}
                 response=$(${cmdCurl} -L -s -w "\n%{http_code}" ${url})
                 http_code=$(tail -n1 <<<"${response}")
                 if [[ ${http_code} == "429" ]]; then
                     # Cool down & repeat
-                    [[ ${quiet} -eq 0 ]] && echo "$(tput bold)$(tput setaf 6)[429]$(tput sgr0) Too many requests (extended cool down for 300s)"
+                    [[ ${quiet} -eq 0 ]] && EchoColoredMessage 6 "[${http_code}]" " Too many requests (extended cool down for 300s)"
                     sleep 300
                     response=$(${cmdCurl} -L -s -w "\n%{http_code}" ${url})
                     http_code=$(tail -n1 <<<"${response}")
@@ -256,7 +256,7 @@ function DownloadUserdata() {
             fi
 
             if [[ ${http_code} == "200" ]] || [[ ${http_code} == "301" ]] || [[ ${http_code} == "302" ]]; then
-                [[ ${quiet} -eq 0 ]] && echo "$(tput bold)$(tput setaf 2)[${http_code}]$(tput sgr0) ❱ Received data for user $(tput bold)${userId}$(tput sgr0) from '${url}'"
+                [[ ${quiet} -eq 0 ]] && EchoColoredMessage 2 "[${http_code}]" " ❱ Received data for user $(tput bold)${userId}$(tput sgr0) from '${url}'"
                 # Get all but the last line (which contains the status code)
                 content=$(sed '$ d' <<<"${response}")
                 # Extract relevant section to file:
@@ -265,11 +265,11 @@ function DownloadUserdata() {
                 sleep 0.${randomMicroSeconds}
             elif [[ ${http_code} == "404" ]]; then
                 randomMicroSeconds=$(printf "%03d\n" $(shuf -i 0-999 -n 1))
-                [[ ${quiet} -eq 0 ]] && echo "$(tput bold)$(tput setaf 1)[${http_code}]$(tput sgr0) User $(tput bold)${userId}$(tput sgr0) does not exist. (cool down: ${cooldown404}.${randomMicroSeconds}s)"
+                [[ ${quiet} -eq 0 ]] && EchoColoredMessage 1 "[${http_code}]" " User $(tput bold)${userId}$(tput sgr0) does not exist. (cool down: ${cooldown404}.${randomMicroSeconds}s)"
                 echo "${userId}" >>"${usersNotFoundList}"
                 sleep ${cooldown404}.${randomMicroSeconds}
             else
-                [[ ${quiet} -eq 0 ]] && echo "$(tput bold)$(tput setaf 1)[${http_code}]$(tput sgr0) ...giving up for user $(tput bold)${userId}$(tput sgr0)!"
+                [[ ${quiet} -eq 0 ]] && EchoColoredMessage 1 "[${http_code}]" " ...giving up for user $(tput bold)${userId}$(tput sgr0)!"
                 echo "${userId}" >>grab-user.error
                 sleep 2
             fi
@@ -384,7 +384,7 @@ ${imageTag}
 #	$?	void
 #-------------------------------------------------------------------------------
 function Process() {
-    [[ ${startId} -eq ${endId} ]] && exitOnError "Start and end have the same ID."
+    [[ ${startId} -eq ${endId} ]] && ExitOnError "Start and end have the same ID."
     AddHtmlHeader "${htmlFile}"
     lastProcessedId=1
     for userId in $(seq ${startId} ${endId}); do
