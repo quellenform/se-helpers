@@ -111,7 +111,7 @@ chrome.action.onClicked.addListener((tab) => {
                 }
 
                 updateInputElement('displayName', 'Spammer');
-                updateInputElement('location', '');
+                updateInputElement('location', 'Spam');
                 updateInputElement('wmd-input', 'Profile spam removed by moderator');
                 updateInputElement('WebsiteUrl', '');
                 updateInputElement('TwitterUrl', '');
