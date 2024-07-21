@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Destroy Stack Exchange Profile Spam",
+    "version": "1.0",
+    "description": "Chrome extension that when clicked destroys a profile as Spammer",
+    "action": {
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "scripting",
+      "activeTab"
+    ]
+  }
