@@ -18,16 +18,16 @@ Before using the scripts, ensure you have the following packages installed:
 ### Usage
 
 ```bash
-	Usage: grab-user.sh [OPTIONS]
+Usage: grab-user.sh [OPTIONS]
 
-	  -h             Display this information
-	  -s             Start ID (If no value is specified, the last saved value is used, see configuration file)
-	  -e             End ID (If no value is specified, the highest ID is determined automatically)
-	  -f             Force download of userdata (will overwrite exsting data!)
-	  -n             Do not create HTML files (download userdata only)
-	  -q             Quiet
+  -h             Display this information
+  -s             Start ID (If no value is specified, the last saved value is used, see configuration file)
+  -e             End ID (If no value is specified, the highest ID is determined automatically)
+  -f             Force download of userdata (will overwrite exsting data!)
+  -n             Do not create HTML files (download userdata only)
+  -q             Quiet
 
-	Example: grab-user.sh -s 180000 -e 190000
+Example: grab-user.sh -s 180000 -e 190000
 ```
 
 ## edit-user
