@@ -56,6 +56,34 @@ chrome.action.onClicked.addListener((tab) => {
                     });
                 }
 
+                function clearUserSessions() {
+                    return new Promise((resolve) => {
+                        var modButton = document.querySelector('.js-mod-menu-button');
+                        if (modButton) {
+                            modButton.click();
+                            var observer = new MutationObserver((mutations, obs) => {
+                                var clearSessionsRadioButton = document.getElementById('se-mod-menu-action-clear-sessions');
+                                if (clearSessionsRadioButton) {
+                                    clearSessionsRadioButton.click();
+                                    var submitButton = document.querySelector('button[data-se-mod-menu-target="submitButton"]');
+                                    if (submitButton) {
+                                        submitButton.click();
+                                        resolve()
+                                    } else {
+                                        alert('No Submit button found!');
+                                    }
+                                    obs.disconnect();
+                                } else {
+                                    alert('No Clear Sessions radio button found!');
+                                }
+                            });
+                            observer.observe(document.body, { childList: true, subtree: true });
+                        } else {
+                            alert('Mod button not found!');
+                        }
+                    });
+                }
+
                 function submitButtonClick() {
                     return new Promise((resolve, reject) => {
                         function isSubmissionComplete() {
@@ -91,6 +119,7 @@ chrome.action.onClicked.addListener((tab) => {
 
                 await clickChangePictureLink();
                 await selectGravatarIdenticon();
+                await clearUserSessions();
                 await submitButtonClick();
             }
         });
