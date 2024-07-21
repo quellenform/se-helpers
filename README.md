@@ -1,7 +1,10 @@
 # se-helpers
+
 Various scripts for SE
 
-## Prerequisites
+## grab-user
+
+### Prerequisites
 
 Before using the scripts, ensure you have the following packages installed:
 
@@ -9,3 +12,7 @@ Before using the scripts, ensure you have the following packages installed:
 - `curl`: A tool to transfer data from or to a server.
 - `html-xml-utils`: A set of tools for manipulating HTML and XML files.
 - `html2text`: A utility to convert HTML documents to plain text.
+
+## edit-user
+
+## destroy-user
