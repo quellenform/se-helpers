@@ -19,3 +19,7 @@ indent_size = 4
 # CSS-Files
 [*.{css,scss,sass,less}]
 indent_style = tab
+
+# JSON-Files
+[*.json]
+indent_style = tab
