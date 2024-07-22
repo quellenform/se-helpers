@@ -8,18 +8,16 @@ root = true
 charset = utf-8
 end_of_line = lf
 indent_style = space
-indent_size = 2
+indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# SH-Files
-[*.sh]
-indent_size = 4
-
 # CSS-Files
-[*.{css,scss,sass,less}]
+[*.{css,scss}]
+indent_size = 2
 indent_style = tab
 
 # JSON-Files
 [*.json]
+indent_size = 2
 indent_style = tab
