@@ -1,26 +1,34 @@
 {
-    "manifest_version": 3,
-    "name": "Stack Exchange Moderator Helper",
-    "version": "1.0",
-    "permissions": ["activeTab", "scripting", "notifications"],
-    "host_permissions": [
-        "*://*.stackexchange.com/*"
-    ],
-    "content_scripts": [
-      {
-        "matches": ["*://*.stackexchange.com/*"],
-        "js": ["content.js"]
-      }
-    ],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icon.png",
-        "48": "icon.png",
-        "128": "icon.png"
-      }
-    }
+	"manifest_version": 3,
+	"name": "Stack Exchange Moderator Helper",
+	"version": "1.0",
+	"permissions": [
+		"activeTab",
+		"scripting",
+		"notifications"
+	],
+	"host_permissions": [
+		"*://*.stackexchange.com/*"
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.stackexchange.com/*"
+			],
+			"js": [
+				"content.js"
+			]
+		}
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "icon.png",
+			"48": "icon.png",
+			"128": "icon.png"
+		}
+	}
 }

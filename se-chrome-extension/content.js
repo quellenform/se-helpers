@@ -1,4 +1,4 @@
-(function() {
+(function () {
     function onButtonClickEditProfile() {
         const url = window.location.href;
         const segments = url.split('/');
