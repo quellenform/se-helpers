@@ -1,38 +1,28 @@
 chrome.action.onClicked.addListener((tab) => {
-    const urlPattern = /^(https:\/\/[^\/]+\/users(?:\/[^\/]*)*)\/(\d+)(?:\/.*)?$/;
-    const editPattern = /^(https:\/\/.*?\/users\/edit\/\d+)$/;
-    const match = tab.url.match(urlPattern);
+    const url = tab.url;
+    const segments = url.split('/');
+    const userId = segments.find(segment => /^\d+$/.test(segment));
 
-    if (match) {
-        const baseUrl = match[1];
-        const userId = match[2];
-        const trimmedBaseUrl = baseUrl.split('/users')[0] + '/users';
-        const editProfileUrl = `${trimmedBaseUrl}/edit/${userId}`;
+    if (!userId) {
+        chrome.notifications.create({
+            type: 'basic',
+            iconUrl: 'icon.png',
+            title: 'Error',
+            message: 'User ID not found in the URL.'
+        });
+        return;
+    }
 
-        console.log('Base URL:', baseUrl);
-        console.log('Trimmed Base URL:', trimmedBaseUrl);
-        console.log('User ID:', userId);
-        console.log('Edit Profile URL:', editProfileUrl);
+    const baseUrl = url.split('/users')[0];
+    const editProfileUrl = `${baseUrl}/users/edit/${userId}`;
 
-        if (!tab.url.match(editPattern)) {
-            chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                func: (url) => {
-                    window.location.href = url;
-                },
-                args: [editProfileUrl]
-            });
-        } else {
-            alert('Already on the edit profile page.');
-        }
+    if (url === editProfileUrl) {
+        console.log("Already on Edit Profile page!")
     } else {
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
-            func: (pattern) => {
-                alert('URL does not match the expected pattern: ' + pattern);
-                console.error('URL does not match the expected pattern:', pattern);
-            },
-            args: [urlPattern.toString()]
-        });
+            func: (redirectUrl) => window.location.href = redirectUrl,
+            args: [editProfileUrl]
+        }).catch(error => console.error('Failed to execute script:', error));
     }
 });
