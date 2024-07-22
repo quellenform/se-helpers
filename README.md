@@ -1,6 +1,6 @@
 # se-helpers
 
-Various scripts for SE
+Various scripts and tools for SE moderators.
 
 ## grab-user
 
@@ -30,6 +30,4 @@ Usage: grab-user.sh [OPTIONS]
 Example: grab-user.sh -s 180000 -e 190000
 ```
 
-## edit-user
-
-## destroy-user
+## se-chrome-extension
