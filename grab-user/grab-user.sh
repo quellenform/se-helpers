@@ -368,15 +368,21 @@ function AddUserDataToHtml() {
 
             if [[ ${spam} -eq 1 ]]; then
                 class=" class=\"warning\""
-                warning="<span>[WARNING]</span>"
+                warning="<span class=\"badge badge-warning\">warning</span>"
             fi
 
             echo "<li${class}>
 ${imageTag}
-<div>${warning}
-<h2>#${userId} <a href=\"${url}users/${userId}\">${username}</a><a href=\"${url}users/edit/${userId}\">[Edit]</a></h2>
+<div>
+<div>
+<a href=\"${url}users/edit/${userId}\" class=\"btn\" target=\"_blank\">Edit Profile</a>
+<span class=\"username\">#${userId}</span>
+<a href=\"${url}users/${userId}\" target=\"_blank\">${username}</a>${warning}
+</div>
+<div class=\"loc\">
 <span>${location}</span>
 <span>${website}</span>
+</div>
 <pre>${description}</pre>
 </div>
 </li>" >>${htmlFile}
