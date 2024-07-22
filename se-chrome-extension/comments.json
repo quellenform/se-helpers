@@ -1,0 +1,170 @@
+{
+    "questions": [
+        {
+            "title": "Question Unanswerable",
+            "description": "Hello and welcome. As it stands this question is unanswerable and was put on hold for lack of essential details to understand the issue. Risking stating the obvious, only you have access to your scene, so unless you describe it thoroughly you alone know your exact setup, settings and what steps you took to arrive where your are now. Describe the issue in detail, add [images](https://meta.stackexchange.com/questions/75491) of relevant settings and user interface, with the [edit] button above. Don't post comments or ask a new question, editing will automatically queue it for reopening review."
+        },
+        {
+            "title": "Question Title",
+            "description": "Welcome. Please use a title that matches the content of the question. It should be descriptive but succinct, unique and identifying, summarizing the issue in such way that anyone searching for a similar problem may easily find it. Use the [edit] link above, remove anything superfluous, avoid words like \"*this*\",\"*issue with*\" or \"*question about*\". Remember, your title is the first thing potential visitors will see, answers you get depend heavily on how inviting it is. See [\"What is the problem of asking 'How do I do this?'?](https://blender.meta.stackexchange.com/questions/2449)"
+        },
+        {
+            "title": "Question Links",
+            "description": "Hello and welcome. While files, images, and external videos or links may be helpful additions they should not be the only way to obtain information about your issue. Don't make understanding your question rely on downloading a file, watching a video or visiting an external site. Use the builtin tools to upload [images](https://meta.stackexchange.com/questions/75491) or [gifs](https://blender.meta.stackexchange.com/questions/963), along with thoroughly explaining the problem in written form so it can be indexed and searched for thus helping future visitors with similar issues."
+        },
+        {
+            "title": "Question Image or Link",
+            "description": "Hello and welcome. Please provide some context and explanation by verbally describing your issue, don't just post, images, videos, files to download, or links to external sites. See [What is the problem with posting an image or link and asking “How do I do this?”](https://blender.meta.stackexchange.com/questions/2449)"
+        },
+        {
+            "title": "Question Closed",
+            "description": "Hello and welcome. Please don't post the same question more than once. Your previous question was closed for lack of clarity and you just copied the same content here. Have in mind that we are learning resource, and require showing a minimum of effort towards your goal, as it stands answering your post would just boil down to doing your work for you, which is beyond the scope of the site. Use the [edit] button, to include information about what you have tried, why it failed and where exactly you are having difficulties. Once edited the question is automatically queued up for reopening."
+        },
+        {
+            "title": "Question too Broad",
+            "description": "Hello and welcome. As it stands this question is too broad to be answerable without requiring an extensive tutorial or description. You should show efforts towards reaching your goal, describing what you have tried and why it failed, so we don't risk recommending something you already know. The scope should also focus on a particular step you encountered an issue with. Describing the whole procedure from start to finish would be too lengthy to explain, and is beyond the goal of this site. If you could [edit] your post to focus on where you are stuck we can vote to reopen it."
+        },
+        {
+            "title": "Multiple Questions",
+            "description": "Hello and welcome. Please don't ask more than one question per post. Use the [edit] link below your post, to break this into multiple posts so that each focuses on a single issue. Make as many separate questions as necessary."
+        },
+        {
+            "title": "Question Duplicate",
+            "description": "Hello and welcome. Please don't post the same question more than once. If you feel your previous question was incorrectly [marked as duplicate](https://blender.stackexchange.com/help/duplicates), or the linked posts don't adequately address your issue, go back to your previous question and edit by pressing the *Edit* button below, including information of what you have tried, why it failed and how the duplicates don't address your issue. Once edited the question is automatically queued up for review so it can be reopened."
+        },
+        {
+            "title": "Question Acknowledge",
+            "description": "Hello and welcome. This question seems to have already been asked in various forms over time and already has a multiple answers, but you never acknowledged any of the existing posts. We are not sure if you aware of them but none of the described techniques fulfil your particular requisites, or you simply didn't do any research at all. Could you [edit] you post and clarify how your question differs from the suggested duplicates? Otherwise could you rephrase it to focus on a particular step you are stuck with?"
+        },
+        {
+            "title": "Question Same Question",
+            "description": "Hello and welcome. Please don't post the same question more than once. If your previous question was put on hold, address the raised issues by editing it so it can be reopened rather than post a new one, otherwise see [What should I do if no one answers my question?](https://blender.stackexchange.com/help/no-one-answers)"
+        },
+        {
+            "title": "Question Request for Tutorial",
+            "description": "Hi. [Requests for tutorials are considered off topic here](https://blender.meta.stackexchange.com/questions/1). If it requires a full tutorial the question is either [too broad and needs to be narrowed down](https://blender.meta.stackexchange.com/questions/62) to a more specific issue; or it can be solved with a simple web search which you can easily do yourself. Please don't post another question. If you could you rephrase the current one to read more like a direct inquiry about your issue, rather than pointing you to a link, you can [edit] it so it can be reopened."
+        },
+        {
+            "title": "Question Resources",
+            "description": "Hello and welcome. Asking for links to resources about X is considered off topic here, asking directly about X is encouraged though. If you can rephrase your question to focus on the specific difficulties you are encountering, rather than point you to some site, please [edit] your post so it can be reopened. As it stands it is not a good fit for this site."
+        },
+        {
+            "title": "Question Job",
+            "description": "Hello and welcome. This is not a regular forum, we are a question and answer site aimed at providing users with assistance along the way, rather than solve the issues for them or present ready made solutions. For commissioning work, job posts or hiring someone, there is a paid work section at [Blender Artists Forum](https://blenderartists.org). Otherwise rephrase your question so it shows your efforts towards solving the issue, rather than ask for someone to do it for you, so it can be reopened."
+        },
+        {
+            "title": "Question Art Critique",
+            "description": "Hello and welcome. This question is considered off topic here and was put on hold for being subjective and attracting opinion based answers, because there are no \"right\" or \"wrong\" answers and every suggestion is equally valid. For art critique, tips, artistic input, or other opinion based suggestions it is best to ask over at [Blender Artists Forum](https://blenderartists.org/) or similar forums. If you can rephrase it to focus on objective questions or solving specific issues feel free to [edit] it so it can be reopened."
+        },
+        {
+            "title": "Question Licensing",
+            "description": "I'm voting to close this question as off topic because it is about licensing and legal issues we are neither equipped nor legally qualified to answer, and any ill advice could unintentionally pose a liability to both the user and the network. For official info see the [Blender Licensing Terms and Conditions](https://www.blender.org/about/license/) and the [FAQ about GNU GPL](https://www.blender.org/support/faq/#gnu-gpl)"
+        },
+        {
+            "title": "Question Experimental Software",
+            "description": "I'm voting to close this question as off topic because it is about troubleshooting temporary issues with unfinished, under development or experimental versions of software, which are expected to be working properly upon stable release. These transitory questions are unlikely to be useful in the future, rendering their long term value low, and making them unappealing for a knowledge database site."
+        },
+        {
+            "title": "Question Meta",
+            "description": "Hello and Welcome. For Questions about this site, the network, moderation, rules and how they work, please use [Meta](https://blender.meta.stackexchange.com) instead."
+        }
+    ],
+    "answers": [
+        {
+            "title": "Answer Comment",
+            "description": "Hello and welcome. This site is not a regular forum; the answer section is reserved exclusively for answering the OP question. To ask for clarification, post comments, or replies, please use the comments section instead. If you have the same problem or a different question, please use the [Ask Question](https://blender.stackexchange.com/questions/ask) button at the top right. If you want to add additional information or further developments, use the edit button below the original post instead. This post may be removed or converted to a comment."
+        },
+        {
+            "title": "Answer Low Quality",
+            "description": "Hi, thanks for the post. This site is not a regular forum; answers should be substantial, stand on their own, and thoroughly explain the solution and required steps. One-liners and short tips rarely make for a good answer. If you can, [edit] your post and provide some more details about the procedure and how it works, perhaps adding a few [images](https://blender.meta.stackexchange.com/questions/963) illustrating some steps and the final result. See [How to write a good answer?](https://blender.stackexchange.com/help/how-to-answer), otherwise, it may be converted to a comment."
+        },
+        {
+            "title": "Answer Link Only",
+            "description": "Thanks for the post. This is not a regular forum; according to site rules, [links to answers are not answers](https://blender.meta.stackexchange.com/questions/2382). If the link goes missing, your answer becomes an empty shell without content. Answers should be substantial and stand on their own without relying on external data like links, videos, or images. Instead of having users go through external links, either transcribe essential parts of the process here, linking the source, or post these in the comments section instead."
+        },
+        {
+            "title": "Answer Thanks",
+            "description": "Hello and welcome. This site is not a regular forum; the answer section is reserved exclusively for answering the OP question. To post comments or replies, please use the comments section instead. Please don't reply 'Thanks' as an answer or comment; instead [upvote the post that helped you](https://blender.stackexchange.com/help/why-vote). If you feel it completely solved your issue, consider [marking it as accepted](https://blender.stackexchange.com/help/accepted-answer)."
+        },
+        {
+            "title": "Answer Self",
+            "description": "Hi, thanks for the post. While answering your own question is possible and even encouraged, it should be done respecting the site structure. Could you break this up into two posts, rephrasing the problem to read like an actual question or expose a problem, while the solution is written as a separate answer in the proper section below? Maybe add a short description of the steps accompanied by a few [images](https://blender.meta.stackexchange.com/questions/963) illustrating the workflow and final results. See [How do I write a good answer?](https://blender.stackexchange.com/help/how-to-answer)."
+        },
+        {
+            "title": "Answer Solved",
+            "description": "Hi. Please don't add 'Solved' to your question or title. Instead, we encourage you to post an answer below with a short description of the solution and what steps you took to reach it. Perhaps add a few [images](https://blender.meta.stackexchange.com/questions/963) illustrating the workflow and final results. See [How do I write a good answer?](https://blender.stackexchange.com/help/how-to-answer)."
+        },
+        {
+            "title": "Answer Promotion",
+            "description": "Hi, thanks for the post. This site is not a regular forum; answers should be substantial, stand on their own, and thoroughly explain the solution and required steps. Promotion of commercial products is fine as long as any affiliation is disclosed and the answer makes an honest effort to describe the procedure and required steps, rather than just link to a product. Blatant self-promotion may be deleted or converted to a comment. If you can, [edit] your post so it can be restored. See our [Stance Regarding Commercial Products](https://blender.meta.stackexchange.com/a/788/35559)."
+        },
+        {
+            "title": "Answer AI-Generated",
+            "description": "Was this generated by artificial intelligence, chat assistants, or otherwise with help from large language models? According to our [site rules](https://blender.stackexchange.com/help/gen-ai-policy) decided by the community through [democratic voting](https://blender.meta.stackexchange.com/questions/3071), we do not currently accept answers generated by artificial intelligence, chat assistants, or otherwise with help from large language models. If that is the case here, we'd kindly ask you to delete the post so as not to infringe the rules. Thanks for understanding."
+        }
+    ],
+    "miscellaneous": [
+        {
+            "title": "Images",
+            "description": "Hello and welcome. Instead of having users go through links and external sites please use the builtin tools to embed images in your post. See [How to upload an image to a post?](https://meta.stackexchange.com/questions/75491) or [GIF](https://blender.meta.stackexchange.com/questions/963)"
+        },
+        {
+            "title": "Screenshot",
+            "description": "Hello and welcome. Rather than take photos of your monitor post actual screenshots instead, see [How to take a screenshot](https://www.take-a-screenshot.org). Photos are harder to read because we have to look past external interferences (like reflections, smudges or Moiré patterns) and guess if we are looking at hardware issues such as a malfunctioning display or connections, a software level issue like driver malfunction or glitch, or actual artifacts or issues with the model itself."
+        },
+        {
+            "title": "All Caps",
+            "description": "Hello and welcome. Please don't write in all caps in the title or body of any posts, it is the written equivalent of shouting, is [harder to read](https://en.wikipedia.org/wiki/All_caps#Readability) and may be [considered rude](https://en.wikipedia.org/wiki/All_caps#Computing). Please use the [edit] button below the post to change you text into regular case."
+        },
+        {
+            "title": "Information Comments",
+            "description": "Hi. Please don't post essential information like links, file downloads or additional details in the comments section where it can be easily missed. Instead edit them into your original post with the [Edit] button above. Comments are transitory by nature, are hard to index or search for, and may be erased at any moment."
+        },
+        {
+            "title": "Language",
+            "description": "Hello and welcome. English is mandatory language for the site. If you are not comfortable writing in English feel free to use any online translation service."
+        },
+        {
+            "title": "Bug Report",
+            "description": "Hello and welcome. This is Q&A site run by volunteers, we are not programmers nor in any way associated with the Blender Foundation, decision making nor development process of the software. For bug reports please see [Where to Report a Bug](https://blender.stackexchange.com/questions/1377/best-place-to-put-bug-reports)"
+        },
+        {
+            "title": "Feature Request",
+            "description": "Hello and welcome. This is Q&A site run by volunteers, we are not programmers nor in any way associated with the Blender Foundation, decision making nor development process of the software. For suggestions and feature requests use https://blender.community/c/rightclickselect or https://blenderartists.org. Before doing so consider that ideas are a dime-a-dozen, what we lack is manpower. Every single one of the millions of users have their own long list of personal wishes and desires, while comparatively very few people have the knowledge and inclination to actually implement them."
+        }
+    ],
+    "others": [
+        {
+            "title": "Code",
+            "description": "Hi. Please don't post images or screenshots of your code, console or error messages, instead copy-paste the actual text into your post using proper code tags, so it can be indexed and searched for, and other users trying to help don't have to type it by hand themselves which is error prone and time consuming."
+        },
+        {
+            "title": "Operators Scripting",
+            "description": "Operators in bpy.ops are [for interactive use through the UI and should be avoided in scripts](https://blender.stackexchange.com/questions/2848/why-avoid-bpy-ops/2850#2850) because they depend on context. Using them through scripts may yield unexpected results at best, or fail entirely at worst. Manipulate data directly from bpy.data instead."
+        },
+        {
+            "title": "XY Problem",
+            "description": "[XY Problem](https://meta.stackexchange.com/questions/66377/what-is-the-xy-problem)"
+        },
+        {
+            "title": "Image Text",
+            "description": "Hello and welcome. Please avoid text written inside images, always prefer typing it directly in the body of the post instead. Image content can't be indexed and thus can't be readily found when searching in the future. Updates are difficult because it can't be easily edited in case of mistakes, nor updated in case of future changes. It doesn't follow the fonts and style of the website automatically, and doesn't work with screen readers."
+        },
+        {
+            "title": "Blender Artists",
+            "description": "[Blender Artists Forum](https://blenderartists.org/)"
+        },
+        {
+            "title": "FBX Materials",
+            "description": "https://blender.stackexchange.com/questions/57531/fbx-export-why-there-are-no-materials-or-textures"
+        },
+        {
+            "title": "Meta Stack Exchange",
+            "description": "Hello and Welcome. For Questions about this site, the network, moderation, rules and how they work, please use [Meta](https://blender.meta.stackexchange.com) instead."
+        },
+        {
+            "title": "Blend Exchange",
+            "description": "[blend-exchange.com](https://blend-exchange.com/)"
+        }
+    ]
+}

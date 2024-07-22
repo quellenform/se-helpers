@@ -4,13 +4,57 @@
   <title>Stack Exchange Moderator Helper</title>
   <style>
     body {
-      width: 200px;
+      width: 400px;
       padding: 10px;
+    }
+    .expandable {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+      font-weight: bold; /* Make the section titles bold */
+    }
+    .content {
+      display: none;
+      margin-top: 5px;
+    }
+    .item-content {
+      display: none;
+      margin: 5px 0; /* Margin of 5px on top and bottom */
+      padding-left: 0px; /* Adjust padding to align content */
+    }
+    .copy-button {
+      display: none;
+      margin-left: 5px;
+      cursor: pointer;
+      color: rgb(4, 0, 255);
+      text-decoration: underline;
+    }
+    .expandable-item {
+      cursor: pointer;
+      font-weight: bold; /* Make the item titles bold */
+    }
+    .item-content {
+      cursor: default;
+    }
+    ul {
+      margin-left: 10px; /* Remove default margin */
+      padding-left: 10px; /* Remove default padding */
+    }
+    li {
+      margin-left: 5px; /* Adjust margin for list items */
     }
   </style>
 </head>
 <body>
-  <p>Stack Exchange Moderator Helper: Script runs in background and adds buttons; (1) Edit Profile, (3) Profile Spam, and (3) Destroy User on every user profile</p>
-  <p><a target="_blank" href="https://blender.meta.stackexchange.com/a/3041/142292">Pre-canned Comments</a></p>
+  <p><b>Stack Exchange Moderator Helper:</b> Script runs in background and adds buttons; (1) Edit Profile, (3) Profile Spam, and (3) Destroy User on every user profile</p>
+  <div class="expandable">Pre-canned Question Comments</div>
+  <div class="content" id="question-comments"></div>
+  <div class="expandable">Pre-canned Answer Comments</div>
+  <div class="content" id="answer-comments"></div>
+  <div class="expandable">Pre-canned Miscellaneous Comments</div>
+  <div class="content" id="misc-comments"></div>
+  <div class="expandable">Pre-canned Other Comments</div>
+  <div class="content" id="others-comments"></div>
+  <script src="popup.js"></script>
 </body>
 </html>
