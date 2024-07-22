@@ -333,20 +333,16 @@ function AddUserDataToHtml() {
 
     if [[ ${createHtml} -eq 1 ]] && [[ -f ${userDataFile} ]]; then
 
-        location=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(1) div.truncate" | tail -n +2 | ${cmdRecode} html..UTF-8)
+        location=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.list-reset:nth-of-type(2) li:nth-last-child(1) div.truncate" | tail -n +2 | ${cmdRecode} html..UTF-8)
         [[ -z ${location} ]] && select=1 || select=2
-        website=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(${select}) a[rel*='me']")
-        [[ -z ${website} ]] && website=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(2) li:nth-last-child(2) div:first-child" | ${cmdHtml2text} -utf8)
+        website=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.list-reset:nth-of-type(2) li:nth-last-child(${select}) a[rel*='me']")
+        [[ -z ${website} ]] && website=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.list-reset:nth-of-type(2) li:nth-last-child(${select}) div:first-child" | ${cmdHtml2text} -utf8)
 
         description=$(cat ${userDataFile} | ${cmdHxselect} -c div.js-about-me-content | ${cmdHtml2text} -utf8 -style pretty -width 200)
 
         if [[ -n "${website}" ]] || [[ -n "${description}" ]]; then
 
             username=$(cat ${userDataFile} | ${cmdHxselect} -c div.fs-headline2 | tail -n +2)
-
-            #memberSince=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(1) li:first-child > div:first-child > div:nth-of-type(2)" | sed -n 's/.*title="\([^"]*\).*/\1/p')
-            #lastSeen=$(cat ${userDataFile} | ${cmdHxselect} -c "ul.s-anchors:nth-of-type(1) li:last-child > div div:last-child" | tail -n 1)
-
             image=$(cat ${userDataFile} | ${cmdHxselect} -c "div[class='${imgSelector}']" | sed -n 's/.*src="\([^"]*\)".*/\1/p')
             imageSource=$(cat ${userDataFile} | ${cmdHxselect} -c "div[class='${imgSelector}']" | sed -n 's/.*src="https:\/\/\([^\/]*\).*/\1/p')
 
