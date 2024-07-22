@@ -4,7 +4,9 @@ Various scripts and tools for SE moderators.
 
 ## grab-user
 
-This bash script generates a list of those users for whom at least a description text or a website link is specified. The output is in HTML format and is used to obtain an overview of the content of the profiles to make it easier to detect profile spam.
+This bash script generates a list of those users for whom at least a description text or a website link is specified. The output is in HTML format and is used to obtain an overview of the content of the profiles.
+
+The original idea of this script was to visualize the user base and its publicly accessible information more clearly in order to make it easier to recognize profile spam and take direct action.
 
 ### Prerequisites
 
@@ -31,3 +33,16 @@ Example: grab-user.sh -s 180000 -e 190000
 ```
 
 ## se-chrome-extension
+
+This Chrome extension adds additional buttons to the user profile that can be used to edit or directly destroy the profile with one click.
+
+There are three different buttons:
+- `Edit Profile`: Switches directly to the edit page of the profile
+- `Profile Spam`: Replaces the existing field contents with generic data
+- `Destroy User`: Destroys the profile with one click
+
+> **Caution**: Editing and destroying profiles takes place without further confirmation!
+
+![Profile Page](docs/images/image1.png?raw=true)
+
+![Edit Profile](docs/images/image2.png?raw=true)
