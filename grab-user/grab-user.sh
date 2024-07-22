@@ -301,7 +301,8 @@ function AddHtmlHeader() {
         [[ ${quiet} -eq 0 ]] && echo "Create file '${fileName}'"
         # Open html/body
         echo "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=viewport content=\"width=device-width,initial-scale=1\"><link rel=\"stylesheet\" href=\"index.css\"></head><body>" >${fileName}
-        echo "<h1>${date}</h1>" >>${fileName}
+        date=$(date)
+        echo "<h1>${date}, User ${startId} - ${endId}</h1>" >>${fileName}
         # Open list
         echo "<ul class=\"users\">" >>${fileName}
     fi
