@@ -4,7 +4,7 @@ Various scripts and tools for SE moderators.
 
 ## grab-user
 
-This bash script generates a list of those users for whom at least a description text or a website link is specified. The output is in HTML format and is used to obtain an overview of the content of the profiles.
+This bash script generates a list of those users for whom at least a description text, location or a website link is specified. The output is in HTML format and is used to obtain an overview of the content of the profiles.
 
 The original idea of this script was to visualize the user base and its publicly accessible information more clearly in order to make it easier to recognize profile spam and take direct action.
 
