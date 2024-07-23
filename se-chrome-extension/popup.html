@@ -11,7 +11,7 @@
       cursor: pointer;
       color: blue;
       text-decoration: underline;
-      font-weight: bold; /* Make the section titles bold */
+      font-weight: bold;
     }
     .content {
       display: none;
@@ -19,8 +19,8 @@
     }
     .item-content {
       display: none;
-      margin: 5px 0; /* Margin of 5px on top and bottom */
-      padding-left: 0px; /* Adjust padding to align content */
+      margin: 5px 0;
+      padding-left: 0px;
     }
     .copy-button {
       display: none;
@@ -31,22 +31,43 @@
     }
     .expandable-item {
       cursor: pointer;
-      font-weight: bold; /* Make the item titles bold */
+      font-weight: bold;
     }
     .item-content {
       cursor: default;
     }
     ul {
-      margin-left: 10px; /* Remove default margin */
-      padding-left: 10px; /* Remove default padding */
+      margin-left: 10px;
+      padding-left: 10px;
     }
     li {
-      margin-left: 5px; /* Adjust margin for list items */
+      margin-left: 5px;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    .search-container input[type="text"] {
+      flex: 1;
+    }
+    .search-container button {
+      margin-left: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: red;
+      font-size: 16px;
+      line-height: 1;
     }
   </style>
 </head>
 <body>
   <p><b>Stack Exchange Moderator Helper:</b> Script runs in background and adds buttons; (1) Edit Profile, (3) Profile Spam, and (3) Destroy User on every user profile</p>
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search...">
+    <button id="clear-search">X</button>
+  </div>
   <div class="expandable">Pre-canned Question Comments</div>
   <div class="content" id="question-comments"></div>
   <div class="expandable">Pre-canned Answer Comments</div>
