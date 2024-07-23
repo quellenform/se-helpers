@@ -46,3 +46,7 @@ There are three different buttons:
 ![Profile Page](docs/images/image1.png?raw=true)
 
 ![Edit Profile](docs/images/image2.png?raw=true)
+
+In addition, this Chrome extension contains a selection of pre-canned messages:
+
+![Pre-canned comments](docs/images/pcc.gif?raw=true)
