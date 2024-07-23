@@ -134,7 +134,7 @@ function CheckRequirements() {
 function LoadConfig() {
     # Include config file
     configFile="${pathScript}grab-user.conf"
-    [ -f ${configFile} ] && . ${configFile} || ExitOnError "Config file $(tput bold)${configFile}$(tput sgr0) could not be loaded!"
+    [[ -f ${configFile} ]] && . ${configFile}
 }
 
 #-------------------------------------------------------------------------------
@@ -147,6 +147,7 @@ function UpdateConfValue() {
     local operator="="
     local parameter="${1}"
     local value="${2}"
+    [[ ! -f ${configFile} ]] && touch ${configFile}
     grep -P -q "^${parameter}\b.*$" ${configFile} && sed -i -e "s/^\(${parameter}\b[\t ${operator}]*\).*$/\1${value}/" ${configFile} || echo "${parameter}${operator}${value}" >>${configFile}
 }
 
