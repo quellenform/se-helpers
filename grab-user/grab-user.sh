@@ -220,7 +220,7 @@ function AskForUserInput() {
 function PreparePaths() {
     [[ ! -d "${pathData}" ]] && mkdir -p "${pathData}"
     [[ ! -d "${pathOutput}" ]] && mkdir -p "${pathOutput}"
-    [[ ! -f "${usersNotFoundList}" ]] && touch "${usersNotFoundList}"
+    [[ ! -f "${usersNotFoundList}" ]] && touch "${usersNotFoundList}" && echo "# ${url}" >${usersNotFoundList}
     cp -fp "${pathScript}grab-user.css" "${pathOutput}index.css"
 }
 
