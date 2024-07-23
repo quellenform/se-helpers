@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.json())
     .then(data => {
       initializeComments(data);
-    }).catch(error => console.error('Error fetching comments:', error));
+    })
+    .catch(error => console.error('Error fetching comments:', error));
 
   const searchInput = document.getElementById('search');
   const clearButton = document.getElementById('clear-search');
@@ -59,15 +60,21 @@ function addExpandableListeners() {
 
 function toggleContentDisplay() {
   const content = this.nextElementSibling;
-  content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+  if (content) {
+    content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+  }
 }
 
 function toggleItemContentDisplay() {
   const content = this.nextElementSibling;
-  const copyButton = content.querySelector('.copy-button');
-  const isVisible = content.style.display === 'block';
-  content.style.display = isVisible ? 'none' : 'block';
-  copyButton.style.display = isVisible ? 'none' : 'inline';
+  if (content) {
+    const copyButton = content.querySelector('.copy-button');
+    const isVisible = content.style.display === 'block';
+    content.style.display = isVisible ? 'none' : 'block';
+    if (copyButton) {
+      copyButton.style.display = isVisible ? 'none' : 'inline';
+    }
+  }
 }
 
 function handleCopyButtonClick(event) {
@@ -103,31 +110,49 @@ function searchComments(query) {
   document.querySelectorAll('.content').forEach(content => {
     let matchFound = false;
     content.querySelectorAll('li').forEach(listItem => {
-      const itemTitle = listItem.querySelector('.expandable-item').textContent.toLowerCase();
-      const itemContent = listItem.querySelector('.item-content').textContent.toLowerCase();
-      if (itemTitle.includes(query.toLowerCase()) || itemContent.includes(query.toLowerCase())) {
+      const expandableItem = listItem.querySelector('.expandable-item');
+      const itemContent = listItem.querySelector('.item-content');
+      const copyButton = itemContent ? itemContent.querySelector('.copy-button') : null;
+      const itemTitle = expandableItem ? expandableItem.textContent.toLowerCase() : '';
+      const itemContentText = itemContent ? itemContent.textContent.replace('Copy', '').toLowerCase() : '';
+
+      if (itemTitle.includes(query.toLowerCase()) || itemContentText.includes(query.toLowerCase())) {
         listItem.style.display = 'block';
         matchFound = true;
-        highlightText(listItem, query);
-        listItem.querySelector('.item-content').style.display = 'block';
-        listItem.querySelector('.copy-button').style.display = 'inline';
+        if (itemContent) {
+          itemContent.style.display = 'block';
+          highlightText(itemContent, query);
+        }
+        if (copyButton) {
+          copyButton.style.display = 'inline'; // Ensure button is visible
+        }
       } else {
         listItem.style.display = 'none';
-        removeHighlight(listItem);
+        if (itemContent) {
+          itemContent.style.display = 'none';
+          removeHighlight(itemContent);
+        }
+        if (copyButton) {
+          copyButton.style.display = 'none';
+        }
       }
     });
     content.style.display = matchFound ? 'block' : 'none';
   });
 }
 
-function highlightText(element, query) {
-  removeHighlight(element);
-  const regex = new RegExp(`(${query})`, 'gi');
-  element.innerHTML = element.innerHTML.replace(regex, '<span style="background-color: yellow;">$1</span>');
+function highlightText(contentElement, query) {
+  let innerHTML = contentElement.innerHTML;
+  innerHTML = innerHTML.replace(/<span style="background-color: yellow;">(.*?)<\/span>/gi, '$1');
+  const regex = new RegExp(`(${query})(?![^<]*>)`, 'gi'); // Negative lookahead to exclude HTML tags
+  innerHTML = innerHTML.replace(regex, '<span style="background-color: yellow;">$1</span>');
+  contentElement.innerHTML = innerHTML;
 }
 
-function removeHighlight(element) {
-  element.innerHTML = element.innerHTML.replace(/<span style="background-color: yellow;">(.*?)<\/span>/gi, '$1');
+function removeHighlight(contentElement) {
+  let innerHTML = contentElement.innerHTML;
+  innerHTML = innerHTML.replace(/<span style="background-color: yellow;">(.*?)<\/span>/gi, '$1');
+  contentElement.innerHTML = innerHTML;
 }
 
 function resetComments() {
@@ -135,10 +160,16 @@ function resetComments() {
     content.style.display = 'none';
     content.querySelectorAll('li').forEach(listItem => {
       listItem.style.display = 'block';
-      listItem.querySelector('.item-content').style.display = 'none';
-      listItem.querySelector('.copy-button').style.display = 'none';
-      removeHighlight(listItem);
+      const itemContent = listItem.querySelector('.item-content');
+      if (itemContent) {
+        itemContent.style.display = 'none';
+        removeHighlight(itemContent);
+      }
+      const copyButton = listItem.querySelector('.copy-button');
+      if (copyButton) {
+        copyButton.style.display = 'inline'; // Ensure button is visible on reset
+      }
     });
   });
-  addExpandableListeners();
+  addExpandableListeners(); // Reapply listeners after reset
 }
