@@ -342,7 +342,7 @@ function AddUserDataToHtml() {
 
         description=$(cat ${userDataFile} | ${cmdHxselect} -c div.js-about-me-content | ${cmdHtml2text} -utf8 -style pretty -width 200)
 
-        if [[ -n "${website}" ]] || [[ -n "${description}" ]]; then
+        if [[ -n "${location}" ]] || [[ -n "${website}" ]] || [[ -n "${description}" ]]; then
 
             username=$(cat ${userDataFile} | ${cmdHxselect} -c div.fs-headline2 | tail -n +2)
             image=$(cat ${userDataFile} | ${cmdHxselect} -c "div[class='${imgSelector}']" | sed -n 's/.*src="\([^"]*\)".*/\1/p')
