@@ -13,7 +13,7 @@ function updatePopup() {
 
         userDivs.forEach(userDiv => {
             let profilePath = userDiv.querySelector('.user-gravatar48 a')?.getAttribute('href');
-            let profileUrl = profilePath ? baseUrl + profilePath : '';
+            let profileUrl = profilePath ? baseUrl + profilePath + '?tab=profile' : '';
             const avatarImg = userDiv.querySelector('.user-gravatar48 img')?.src;
             const userName = userDiv.querySelector('.user-details a')?.textContent;
             const userLocation = userDiv.querySelector('.user-location')?.textContent.trim();
