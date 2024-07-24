@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Profile Spam Detector",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "alarms",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://blender.stackexchange.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png"
+  }
+}

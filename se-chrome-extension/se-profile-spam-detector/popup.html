@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Spam Detector</title>
+  <style>
+    body {
+      width: 350px;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .spam-profile {
+      display: flex;
+      align-items: flex-start;
+      margin: 4px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+    .profile-image {
+      width: 48px;
+      height: 48px;
+      margin-right: 10px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .profile-info .name {
+      font-weight: bold;
+      margin: 0px;
+      padding: 0px;
+      font-size: 14px;
+    }
+    .profile-info .location {
+      color: #666;
+      padding: 0px;
+      margin: 0px;
+      font-size: 12px;
+    }
+    .no-spam {
+      text-align: center;
+      font-style: italic;
+    }
+    .last-update {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="spam-profiles">Loading...</div>
+  <div id="last-update" class="last-update">Last update: Loading...</div>
+  <script src="popup.js"></script>
+</body>
+</html>
