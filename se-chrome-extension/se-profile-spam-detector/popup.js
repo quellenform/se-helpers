@@ -14,10 +14,10 @@ function updatePopup() {
         userDivs.forEach(userDiv => {
             let profilePath = userDiv.querySelector('.user-gravatar48 a')?.getAttribute('href');
             let profileUrl = profilePath ? baseUrl + profilePath + '?tab=profile' : '';
-            const avatarImg = userDiv.querySelector('.user-gravatar48 img')?.src;
+            const avatarImg = userDiv.querySelector('.user-gravatar48 img')?.src; //gravatar.com; googleusercontent.com; sstatic.net
             const userName = userDiv.querySelector('.user-details a')?.textContent;
             const userLocation = userDiv.querySelector('.user-location')?.textContent.trim();
-            const isSpam = userLocation !== '' && (!avatarImg.includes('gravatar.com') && !avatarImg.includes('googleusercontent.com'));
+            const isSpam = userName !== '' && userName.trim().includes(" ") && userLocation !== '' && userLocation.trim().includes(" ");
 
             if (isSpam) {
                 spamProfiles.push({
